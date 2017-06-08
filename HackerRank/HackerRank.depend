@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1459431531 source:/home/udayraj/Desktop/Coding/HackerRank/main.cpp
+	<cmath>
+	<cstdio>
+	<vector>
+	<iostream>
+	<algorithm>
+

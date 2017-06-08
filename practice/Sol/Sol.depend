@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1458944644 source:/home/udayraj/Desktop/Coding/Sol/main.cpp
+	<iostream>
+	<stack>
+	<cctype>
+	<cstring>
+

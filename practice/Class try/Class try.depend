@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1489092971 source:/home/udayraj/Desktop/Coding/Class try/main.cpp
+	<cstdio>
+	<iostream>
+	<algorithm>
+	<cmath>
+	<vector>
+	<string>
+	<string.h>
+	<math.h>
+	<stdlib.h>
+	<stdio.h>
+	<cstdlib>
+
