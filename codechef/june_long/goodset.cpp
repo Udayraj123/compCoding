@@ -4,6 +4,9 @@
 #define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);printf("\n");
 #define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);printf("\n");
 using namespace std;
+/*
+TODO problem
+*/
 
 int main(int argc, char const *argv[])
 {

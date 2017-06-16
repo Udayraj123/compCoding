@@ -4,36 +4,22 @@
 #define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);printf("\n");
 #define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);printf("\n");
 using namespace std;
+/*
 
+The ranks are simply along the diagonal.
+So U,V will always have the max rank
+Rank of U,V will be p*(p+1)+U+1, where p = U+V
+
+*/
 int main(int argc, char const *argv[])
 {
-	int t=100,n=1,lastCount = 1;
+	ll t=100,u=1,v=1,p = 1;
 	cin>>t; 
-	int mark[1000];
 	while(t--){
-		memset(mark,0,sizeof mark);
-		// between 1 and 500.
-		// n <= 100
-		cin>>n;
-		ll nums[n];
-		nums[0]=1;
-		mark[1]=1;
-		lastCount=1;
-		for (int j = 1; j < n; ++j){
-			for (int i = lastCount; i < 501; ++i){
-				if(mark[i]==0){
-					lastCount=i;
-					mark[i]=1;
-					nums[j]=i;
-					break;
-				}
-			}
-			// mark the new num sums
-			for (int t = 0; t < j; ++t){
-				mark[nums[j]+nums[t]]=1;
-			}
-		}
-		printla(nums,n)
+		cin>>u>>v;
+		p=u+v;
+		cout<< (p*(p+1)/2 + u + 1)<<endl;
+
 	}
 	return 0;
 }
