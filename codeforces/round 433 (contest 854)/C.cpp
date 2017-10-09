@@ -12,7 +12,7 @@ Need permutation A of the numbers k+1 to n + k
 such that the sum (Ci*(Ai-i)) is minimized
 
 Greedy?
-- Why not -> 
+- Why not -> set zero delay for highest weight
 
 */
 
