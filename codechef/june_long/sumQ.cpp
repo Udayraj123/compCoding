@@ -38,13 +38,15 @@ ll solve(ll x[],ll Y[],ll z[],ll p,ll q,ll r){
 	memset(sumXupto,-1,sizeof sumXupto);
 	memset(sumZupto,-1,sizeof sumZupto);
 	ll ptX=0,ptZ=0,p_,r_;
-	//we get sorted arrays here. and x smaller in length than z.
+	//we get sorted arrays here. 
 	for (int i = 0; i < q; ++i)
 	{
 	//get candidates
 		while(ptX< p && x[ptX] <= Y[i])ptX++;
 		while(ptZ< r && z[ptZ] <= Y[i])ptZ++;
+		// But if ptX and ptZ reached end with numbers bigger than Y, then don't sum up.
 		if(ptX*ptZ==0)continue;//spl cases
+		if(x[ptX-1]>Y[i] || z[ptZ-1]>Y[i])continue;//spl cases
 		sumX = sum(x,ptX-1,sumXupto);
 		sumZ = sum(z,ptZ-1,sumZupto);
 

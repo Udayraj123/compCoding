@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+#define ll long long int
+#define MOD 10//00000007
+#define MAX 100000
+using namespace std;
+
+template<typename Number, Number m>
+class modNum
+{
+private:
+	Number a;
+public:
+	// for printing : cout<<(sumX+sumZ);
+    friend ostream& operator<<(ostream& os, modNum const & num) {
+          return os << num.a;
+      }
+	modNum(Number a) : a(a % m) {}
+	Number get() const { return a; }
+
+	modNum operator+= (modNum b){ a = (a + b.get()) % m; return a; }
+	modNum operator*= (modNum b){ a = (a * b.get()) % m; return a; }
+	modNum operator/= (modNum b){ a = (a / b.get()) % m; return a; }
+	modNum operator-= (modNum b){ a = (a - b.get()) % m; return a; }
+	modNum operator + (modNum b){modNum t = (a + b.get()) % m; return t;}
+	modNum operator * (modNum b){modNum t = (a * b.get()) % m; return t;}
+	modNum operator / (modNum b){modNum t = (a / b.get()) % m; return t;}
+	modNum operator - (modNum b){modNum t = (a - b.get()) % m; return t;}
+
+};
+typedef modNum<ll, MOD> num_t;
+num_t sumX(5),sumZ(6),Y(9);
+
+int main()
+{
+	cout<<(sumX*sumX + sumX+sumZ)*Y;
+	// (((sumX*sumZ) % MOD + (sumX + sumZ) % MOD) % MOD * Y) % MOD;
+	return 0;
+}
+
