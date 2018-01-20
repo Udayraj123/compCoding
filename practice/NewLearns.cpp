@@ -2,8 +2,11 @@
 #define ll long long int
 #define MAX 1000000000
 const long long INF = 1e18 + 42;
-#define vi vector<ll> 
-#define vii vector< vi > 
+
+#define vl vector<ll> 
+#define vvl vector< vl > 
+#define vi vector< int > 
+#define vvi vector< vi > 
 
 #ifdef ONLINE_JUDGE
 	#define ONLINE_JUDGE_DEF true
@@ -11,6 +14,7 @@ const long long INF = 1e18 + 42;
 	#define ONLINE_JUDGE_DEF false
 #endif
 
+#define dprintf(...) if(!ONLINE_JUDGE_DEF)printf(__VA_ARGS__);
 #define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";printf("\n");
 #define DEBUGA(x,n) if(!ONLINE_JUDGE_DEF){for(int i = 0; i < n; ++i)cout<<x[i]<<" ";printf("\n");}
 #define DEBUG(x) if(!ONLINE_JUDGE_DEF){cout << ">> " << #x << " : " << (x) << endl;}
@@ -27,7 +31,7 @@ sum_of_elems = std::accumulate(a.begin(), a.end(), 0);// using 0.0 will output f
 
 
 // Concating vectors
-	vi a,b;
+	vl a,b;
 	b.insert(b.end(), a.begin(), a.end());
 
 // Catalan's Number -
@@ -65,3 +69,30 @@ XOR pattern	- KiM : XoR upto n consecutive numbers = period of 4
 1^2^3^4^5^6^7^8^9^10^11^12^13^14^15 = 0
 
 Anti-XOR is same as XoR i.e. A^X = B => X = A^B
+
+
+
+//template function
+void listDir(char * directory){
+	
+	DIR *dp = NULL;
+	struct dirent *dptr = NULL;
+    // Open the directory stream
+	if(NULL == (dp = opendir(directory)) )
+	{
+		printf("\n Cannot open Input directory [%s]\n",directory);
+		exit(1);
+	}
+	else
+	{
+		printf("\n The contents of directory [%s] are as follows \n",directory);
+        // Read the directory contents
+		while(NULL != (dptr = readdir(dp)) )
+		{
+			if( !strcmp(dptr->d_name,".") && !strcmp(dptr->d_name,".."))
+				printf(" [%s] ",dptr->d_name);
+		}
+        // Close the directory stream
+		closedir(dp);
+	}
+}
