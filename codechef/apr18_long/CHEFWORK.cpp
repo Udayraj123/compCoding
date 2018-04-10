@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+#define ll long long int
+#define MAX 1000000007
+
+#define vi vector<int> 
+#define vii vector< vi > 
+#define vl vector<int> 
+#define vll vector< vl > 
+
+#ifdef DEBUG_MODE
+	#define DPRINT_ALLOW true
+#else
+	#define DPRINT_ALLOW false
+#endif
+
+
+#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";printf("\n");
+#define DEBUGA(x,n) if(DPRINT_ALLOW){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";printf("\n");}
+#define DEBUG(x) if(DPRINT_ALLOW){cout << ">> " << #x << " : " << (x) << endl;}
+using namespace std;
+/*
+t,a,at
+min(min(at),min(a)+min(t))
+*/
+
+
+int main()
+{
+	int t,n,temp;
+	if(!DPRINT_ALLOW) t = 1; else //codeforces line.
+	cin>>t; 
+	while(t--){
+		cin>>n;
+		vi C(n,0);
+		std::map<int, int> typeToMinCost;
+		for (int i = 1; i < 4; ++i)
+			typeToMinCost[i] =MAX;
+
+		for (int i = 0; i < n; ++i)
+			cin>>C[i];
+
+		for (int i = 0; i < n; ++i){
+			cin>>temp;
+			typeToMinCost[temp]=min(C[i],typeToMinCost[temp]);
+		}
+		cout<< min(typeToMinCost[1]+typeToMinCost[2],typeToMinCost[3]) << endl;
+	}
+	return 0;
+}

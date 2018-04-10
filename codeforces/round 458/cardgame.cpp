@@ -1,20 +1,20 @@
 #include<bits/stdc++.h>
 #define ll long long int
-#define MAX 1000000001
+#define MAX 1000000007
 
 #define vi vector<ll> 
 #define vii vector< vi > 
 
-#ifdef DEBUG_RUN
-	#define DEBUG_RUN_DEF true
+#ifdef DEBUG_MODE
+	#define DPRINT_ALLOW true
 #else
-	#define DEBUG_RUN_DEF false
+	#define DPRINT_ALLOW false
 #endif
 
 
 #define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";printf("\n");
-#define DEBUGA(x,n) if(DEBUG_RUN_DEF){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";printf("\n");}
-#define DEBUG(x) if(DEBUG_RUN_DEF){cout << ">> " << #x << " : " << (x) << endl;}
+#define DEBUGA(x,n) if(DPRINT_ALLOW){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";printf("\n");}
+#define DEBUG(x) if(DPRINT_ALLOW){cout << ">> " << #x << " : " << (x) << endl;}
 using namespace std;
 /*
 if the player chooses the i-th card, he removes that card and removes the j-th card for all j such that aj < ai.
@@ -43,7 +43,7 @@ Agasa gets second turn
 int main()
 {
 	ll t,n,k,flag,temp, max_a = 100000;
-	if(!DEBUG_RUN_DEF) t = 1; else cin>>t; 
+	if(!DPRINT_ALLOW) t = 1; else cin>>t; 
 	while(t--){
 		cin>>n;
 		vi counts(max_a,0);

@@ -5,16 +5,16 @@
 #define vi vector<ll> 
 #define vii vector< vi > 
 
-#ifdef DEBUG_RUN
-	#define DEBUG_RUN_DEF true
+#ifdef DEBUG_MODE
+	#define DPRINT_ALLOW true
 #else
-	#define DEBUG_RUN_DEF false
+	#define DPRINT_ALLOW false
 #endif
 
 
 #define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
-#define DEBUGA(x,n) if(DEBUG_RUN_DEF){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";cout<<"\n";}
-#define DEBUG(x) if(DEBUG_RUN_DEF){cout << ">> " << #x << " : " << (x) << endl;}
+#define DEBUGA(x,n) if(DPRINT_ALLOW){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";cout<<"\n";}
+#define DEBUG(x) if(DPRINT_ALLOW){cout << ">> " << #x << " : " << (x) << endl;}
 using namespace std;
 /*
 
@@ -96,7 +96,7 @@ int main()
 	ll t;
 	string n;
 	ll len,k,op,steps;
-	if(!DEBUG_RUN_DEF) t = 1; else cin>>t; 
+	if(!DPRINT_ALLOW) t = 1; else cin>>t; 
 	while(t--){
 		cin>>n>>k;
 		op = operation(n);
