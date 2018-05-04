@@ -20,6 +20,15 @@ const long long INF = 1e18 + 42;
 #define DEBUG(x) if(!ONLINE_JUDGE_DEF){cout << ">> " << #x << " : " << (x) << endl;}
 using namespace std;
 
+// A cout(or anything to the left of '<<') for any class-
+std::ostream& operator<<(std::ostream& o, const Vertex& v)
+{
+	o << "Pos: " << v.position.x << ", " << v.position.y << ", " << v.position.z << " - ["
+		<< v.DiagNeighbours.size() << ", " << v.DirectNeighbours.size() << ", " << v.ExtNeighbours.size() << "]\n";
+	return o;
+}
+
+
 //  There is a foreach in C++ 
 // C++11 and higher
 std::for_each(vector.begin(), vector.end(), [&] (int n) {
@@ -28,6 +37,7 @@ std::for_each(vector.begin(), vector.end(), [&] (int n) {
 
 sum_of_elems = std::accumulate(a.begin(), a.end(), 0);// using 0.0 will output float sum
 
+printf("%s%d\n",NULL,5) vs printf("%s\n",NULL);// GCC optimizes exactly "%s\n" format string into puts(),
 
 
 // Concating vectors
