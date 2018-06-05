@@ -20,7 +20,7 @@ const long long INF = 1e18 + 42;
 #define DEBUG(x) if(!ONLINE_JUDGE_DEF){cout << ">> " << #x << " : " << (x) << endl;}
 using namespace std;
 
-WOAH, double prints scientific notation by default! : 0.0000001 is printed as 1e-007
+> WOAH, double prints scientific notation by default! : 0.0000001 is printed as 1e-007
 // precision: default is 6
 cout<<std::fixed<<std::setprecision(8)<<curr_time<<endl;
 
@@ -48,8 +48,14 @@ double secs = (t1 - t0) / 1000000.0L;
 //
 
 i++ is not the same as i+=1, it returns value but ++i returns reference
-
-
+=======
+// A cout(or anything to the left of '<<') for any class-
+std::ostream& operator<<(std::ostream& o, const Vertex& v)
+{
+	o << "Pos: " << v.position.x << ", " << v.position.y << ", " << v.position.z << " - ["
+		<< v.DiagNeighbours.size() << ", " << v.DirectNeighbours.size() << ", " << v.ExtNeighbours.size() << "]\n";
+	return o;
+}
 //  There is a foreach in C++ 
 // C++11 and higher
 std::for_each(vector.begin(), vector.end(), [&] (int n) {
@@ -63,6 +69,9 @@ sum_of_elems = std::accumulate(a.begin(), a.end(), 0);// using 0.0 will output f
 printf("    %s = %0.*s\n", tempvar = newname(), yyleng, yytext );
 //C string array
 char  *Names[] = { "t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7" };   
+
+// GCC optimizes exactly "%s\n" format string into puts(),
+printf("%s%d\n",NULL,5) vs printf("%s\n",NULL);
 
 
 // Concating vectors
