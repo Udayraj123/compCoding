@@ -3,8 +3,8 @@
 #define MAX 100000
 #define vi vector<int> 
 #define vii vector< vi > 
-#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);printf("\n");
-#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);printf("\n");
+#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);cout<<"\n";
+#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);cout<<"\n";
 using namespace std;
 /*
 Pick a number E(i) from each of the N sequences such that E(i) > E(i-1)

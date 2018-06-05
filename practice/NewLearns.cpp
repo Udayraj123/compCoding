@@ -15,13 +15,39 @@ const long long INF = 1e18 + 42;
 #endif
 
 #define dprintf(...) if(!ONLINE_JUDGE_DEF)printf(__VA_ARGS__);
-#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";printf("\n");
-#define DEBUGA(x,n) if(!ONLINE_JUDGE_DEF){for(int i = 0; i < n; ++i)cout<<x[i]<<" ";printf("\n");}
+#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
+#define DEBUGA(x,n) if(!ONLINE_JUDGE_DEF){for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";}
 #define DEBUG(x) if(!ONLINE_JUDGE_DEF){cout << ">> " << #x << " : " << (x) << endl;}
 using namespace std;
 
+WOAH, double prints scientific notation by default! : 0.0000001 is printed as 1e-007
+// precision: default is 6
+cout<<std::fixed<<std::setprecision(8)<<curr_time<<endl;
 
-i++ is Same as i+=1, it returns value but ++i returns reference
+
+DEMN, passing the vector by value can cause TLE!
+changed getCi(vi C,int i){
+to    getCi(vi &C,int i){
+
+
+// https://stackoverflow.com/questions/1861294/how-to-calculate-execution-time-of-a-code-snippet-in-c
+// (Linux) Snippet for timing execution in the program- 
+#include <sys/time.h>
+typedef unsigned long long timestamp_t;
+static timestamp_t
+get_timestamp (){
+  struct timeval now;
+  gettimeofday (&now, NULL);
+  return  now.tv_usec + (timestamp_t)now.tv_sec * 1000000;
+}
+...
+timestamp_t t0 = get_timestamp();
+// Process
+timestamp_t t1 = get_timestamp();
+double secs = (t1 - t0) / 1000000.0L;
+//
+
+i++ is not the same as i+=1, it returns value but ++i returns reference
 
 
 //  There is a foreach in C++ 

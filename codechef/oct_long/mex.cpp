@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 #define ll  int
 #define MAX 100000
-#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);printf("\n");
-#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);printf("\n");
+#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);cout<<"\n";
+#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);cout<<"\n";
 using namespace std;
 /*
 run form 1 to 2*10^5

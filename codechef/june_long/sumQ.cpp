@@ -2,8 +2,8 @@
 #define ll long long int
 #define MAX 1000000000
 #define MOD 1000000007
-#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);printf("\n");
-#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);printf("\n");
+#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);cout<<"\n";
+#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);cout<<"\n";
 using namespace std;
 /*
 A = 1,2,3

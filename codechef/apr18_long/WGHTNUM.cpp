@@ -10,16 +10,18 @@
 #define vll vector< vl > 
 
 #ifdef DEBUG_MODE
-	#define DPRINT_ALLOW true
+	#include "../../getTime.h"
+	#define DEBUG_ON true
 #else
-	#define DPRINT_ALLOW false
+	#define DEBUG_ON false
 #endif
 
-#define dprintf(...) if(DPRINT_ALLOW)printf(__VA_ARGS__);
-#define DEBUGA(x,n) if(DPRINT_ALLOW){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";printf("\n");}
-#define DEBUG(x) if(DPRINT_ALLOW){cout << ">> " << #x << " : " << (x) << endl;}
+#define dprintf(...) if(DEBUG_ON)printf(__VA_ARGS__);
+#define DEBUGA(x,n) if(DEBUG_ON){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";cout<<"\n";}
+#define DEBUGV(x) if(DEBUG_ON){cout << ">> " << #x << " : \t";for(typeof((x).begin()) i = (x).begin();i!=(x).end();i++)cout<<(*i)<<"\t";cout<<"\n";}
+#define DEBUG(x) if(DEBUG_ON){cout << ">> " << #x << " : " << (x) << endl;}
 
-#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";printf("\n");
+#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
 using namespace std;
 /*
 
@@ -59,16 +61,16 @@ i.e. 9>=D1>0 and 9>=Di>=0 for i>1
 ll iter_power(ll x, ll y, ll p)
 {
     ll res = 1;      // Initialize result
- 
+
     x = x % p;  // Update x if it is more than or 
                 // equal to p
- 
+
     while (y > 0)
     {
         // If y is odd, multiply x with result
-        if (y & 1)
-            res = (res*x) % p;
- 
+    	if (y & 1)
+    		res = (res*x) % p;
+
         // y must be even now
         y = y>>1; // y = y/2
         x = (x*x) % p;  
@@ -91,27 +93,38 @@ int rec_power(int x, unsigned int y)
 }
 */
 
-int main()
-{
+int main(){
+	//Timing debugs
+	#ifdef DEBUG_MODE
+	unsigned ll startTime,endTime;
+	startTime = getTime();
+	#endif
+
 	ll t,n,w,temp,c1,c2,ans;
-	// if(!DPRINT_ALLOW) t = 1; else //codeforces line.
+	// if(!DEBUG_ON) t = 1; else //codeforces line.
 	cin>>t; 
+	map <int,int> counts; //weight to no of digit pairs
+
+	// counts are mirrored around 0-1
+	for (int i = 0; i < 9; ++i){//counts[0] to counts[8]
+		counts[i]= 9 - i;
+	}
+	for (int i = 1; i <= 9; ++i){//counts[-1] to counts[-9]
+		counts[-1*i] = counts[i-1];
+	}
+
 	while(t--){
 		cin>>n>>w;
-		map <int,int> counts; //weight to no of digit pairs
-
-		// counts are mirrored around 0-1
-		for (int i = 0; i < 9; ++i){//counts[0] to counts[8]
-			counts[i]= 9 - i;
-		}
-		for (int i = 1; i <= 9; ++i){//counts[-1] to counts[-9]
-			counts[-1*i] = counts[i];
-		}
 
 		if( w < -9 || w > 8) cout<<0<<endl;
 		else{
 			cout<< ( (counts[w]*iter_power(10,n-2,MAX)) % MAX) <<endl;
 		}
 	}
+	//Timing debugs
+	#ifdef DEBUG_MODE
+		endTime = getTime();
+		printf("Time Taken: %ld ms\n",(endTime-startTime));
+	#endif
 	return 0;
 }

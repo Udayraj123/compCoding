@@ -3,7 +3,7 @@
 #define MAX 100000
 #define print(x) printf("%d ",x);
 #define printl(x) printf("%lld ",x);
-#define printm(m,n,x) for (int i = 0; i < m; ++i){for (int j = 0; j < n; ++j)printf("%d ",x[i][j]);printf("\n");}
+#define printm(m,n,x) for (int i = 0; i < m; ++i){for (int j = 0; j < n; ++j)printf("%d ",x[i][j]);cout<<"\n";}
 using namespace std;
 
 /*

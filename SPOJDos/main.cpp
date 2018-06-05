@@ -40,7 +40,7 @@ int main() {//int n;cin>>n;int A[n];while(n--){cin>>A[n];cout<<Palindrom(A[n])<<
     }
   for(i=m-1;i>=0;i--) //printing answer
               printf("%d",a[i]);
-              printf("\n");
+              cout<<"\n";
     }
 
     /*

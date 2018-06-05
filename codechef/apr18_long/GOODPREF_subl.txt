@@ -1,0 +1,7 @@
+6
+aba 2
+baa 3
+bba 3
+aaabbb 2
+aaabb 2
+aabbb 2

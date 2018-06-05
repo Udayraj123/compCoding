@@ -1,0 +1,21 @@
+{
+	"shell_cmd": "g++ -D DEBUG_MODE -std=gnu++14 \"${file}\" -o \"${file_path}/${file_base_name}_subl\"",
+	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+ 	"working_dir": "${file_path}",
+ 	"selector": "source.cpp",
+ 	"variants":
+ 	[
+ 		{
+ 			"name": "Set input",
+ 			"shell_cmd": "subl \"${file_path}/${file_base_name}_subl.txt\""
+ 		},
+ 		{
+ 			"name": "Run",
+ 			"shell_cmd": "g++ -D DEBUG_MODE -std=gnu++14 \"${file}\" -o \"${file_path}/${file_base_name}_subl\" && \"${file_path}/${file_base_name}_subl\" < \"${file_path}/${file_base_name}_subl.txt\""
+ 		},
+ 		{
+ 			"name": "Run in console",
+ 			"shell_cmd": "g++ -D DEBUG_MODE -std=gnu++14 \"${file}\" -o \"${file_path}/${file_base_name}_subl\" && start \"${file_base_name}_subl\" cmd /k \"\"${file_base_name}_subl.exe\" \r & echo. & echo Process returned status %errorlevel% & pause & exit\""
+ 		}
+ 	]
+}

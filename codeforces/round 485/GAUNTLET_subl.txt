@@ -1,0 +1,14 @@
+3
+4
+red
+purple
+yellow
+orange
+0
+6
+purple
+blue
+yellow
+red
+green
+orange

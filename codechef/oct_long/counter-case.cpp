@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #define ll long long int
-#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);printf("\n");
-#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);printf("\n");
+#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);cout<<"\n";
+#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);cout<<"\n";
 using namespace std;
 #define MODULO (1ULL<<32) // 2^32 
 #define MAX_N 100000 // 10^5

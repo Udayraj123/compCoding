@@ -9,8 +9,8 @@
 #define print(x) printf("%d ",x);
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof(x[0]))
 #define printl(x) printf("%lld ",x);
-#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);printf("\n");
-#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);printf("\n");
+#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);cout<<"\n";
+#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);cout<<"\n";
 
 // #include<bits/stdc++.h>
 // #include<numeric>

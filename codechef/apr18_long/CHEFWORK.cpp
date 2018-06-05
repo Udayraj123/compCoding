@@ -8,15 +8,15 @@
 #define vll vector< vl > 
 
 #ifdef DEBUG_MODE
-	#define DPRINT_ALLOW true
+	#define DEBUG_ON true
 #else
-	#define DPRINT_ALLOW false
+	#define DEBUG_ON false
 #endif
 
 
-#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";printf("\n");
-#define DEBUGA(x,n) if(DPRINT_ALLOW){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";printf("\n");}
-#define DEBUG(x) if(DPRINT_ALLOW){cout << ">> " << #x << " : " << (x) << endl;}
+#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
+#define DEBUGA(x,n) if(DEBUG_ON){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";cout<<"\n";}
+#define DEBUG(x) if(DEBUG_ON){cout << ">> " << #x << " : " << (x) << endl;}
 using namespace std;
 /*
 t,a,at
@@ -27,7 +27,7 @@ min(min(at),min(a)+min(t))
 int main()
 {
 	int t,n,temp;
-	if(!DPRINT_ALLOW) t = 1; else //codeforces line.
+	if(!DEBUG_ON) t = 1; else //codeforces line.
 	cin>>t; 
 	while(t--){
 		cin>>n;

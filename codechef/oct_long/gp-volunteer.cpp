@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
-#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);printf("\n");
-#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);printf("\n");
+#define printa(x,n) for(int i = 0; i < n; ++i)printf("%d ", x[i]);cout<<"\n";
+#define printla(x,n) for(int i = 0; i < n; ++i)printf("%lld ", x[i]);cout<<"\n";
 #define FOR(x,n) for(int x = 0; x < n; ++x)
 
 /*
