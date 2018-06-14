@@ -23,16 +23,18 @@
 using namespace std;
 
 /*
-k sequences
-output indices i, j of sequences off which indices x,y be removed to obtain same sum.
->> sum of lengths of all given sequences don't exceed 2⋅10^5
->> store sum of k seqs.
->> store sumWithoutMe for each input seq.
->> sort them rows of sumWithoutMe
->> find two
+powers of 2 till 10^9 = log(10^9) ~= 30
 
-M2)
->> sort all the numbers together keeping seqno paired withem
+set of powers whose sum is also a power = itself only _/
+1,1 = 2 
+2,2 = 4
+4,4 = 8 and so on.
+
+Given input numbers are distinct
+^so answer is max 3, least 1
+## IN PROGRESS
+-> make NxN gaps matrix. for each row, check for 2^k number, if found check for 2^k in that numbers row and so on.
+==> make edges between the indices if their diff is 2^k & find longest SCC
 
 */
 #define	MAX_Ai 1000
@@ -54,37 +56,15 @@ int main(){
 	if(!DEBUG_ON) t = 1; else //codeforces line.
 	cin>>t; 
 	ll n,k,temp,sum,flag;
-	pair<int,  pair<int,int> > curr,next;
 	while(t--){
-		cin>>k;
-		std::vector< pair<int,  pair<int,int> > > allnums;
-		for (int i = 0; i < k; ++i){
-			cin>>n;
-			sum=0;
-			int temp_arr[n];
-			for (int j = 0; j < n; ++j){
-				cin>>temp;
-				temp_arr[j] = temp;				
-				sum+=temp;
-			}
-			for (int j = 0; j < n; ++j){
-				allnums.push_back(make_pair(sum - temp_arr[j],make_pair(i + 1, j+1)));
-			}
-		}
-		sort(allnums.begin(),allnums.end());//default is via first key
-		flag = 0;
-		for (int i = 0; i < allnums.size()-1; ++i){
-			curr=allnums[i];
-			next=allnums[i+1];
-			if(curr.first==next.first && curr.second.first !=next.second.first ){
-				flag = 1;
-				cout<<"YES\n";
-				cout<< curr.second.first << " " << curr.second.second<<endl;
-				cout<< next.second.first << " " << next.second.second<<endl;
-				break;
-			}
-		}
-		if(flag==0)cout<<"NO\n";
+		cin>>n;
+		ll a[n];
+		for (int i = 0; i < n; ++i)
+			cin>>a[i];
+		
+		for (int i = 0; i < n-1; ++i)
+			for (int j = i+1; j < n; ++j)
+				mat[i][j] = mat[j][i] = ispow2(abs(a[i]-a[j]));
 	}
 	//Timing debugs
 	#ifdef DEBUG_MODE
