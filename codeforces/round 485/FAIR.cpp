@@ -19,7 +19,7 @@
 #define DEBUG(x) if(DEBUG_ON){cout << ">> " << #x << " : " << (x) << endl;}
 #define DEBUGV(x) if(DEBUG_ON){cout << ">> " << #x << " : \t";for(typeof((x).begin()) i = (x).begin();i!=(x).end();i++)cout<<(*i)<<"\t";cout<<"\n";}
 
-#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
+#define printa(x,n) cout<<#x<<": ";for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
 using namespace std;
 
 
@@ -118,7 +118,7 @@ void bfs_mod(list <int> &bfsQueue,vector < vector <int> >  adjList,int n,int k, 
 	//Timing debugs
 	#ifdef DEBUG_MODE
 	endTime = getTime();
-	printf("Time Taken: %ld ms\n",(endTime-startTime));
+	printf("Run Time: %ld ms\n",(endTime-startTime));
 	#endif
 
 	return 0;

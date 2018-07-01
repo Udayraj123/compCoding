@@ -19,7 +19,7 @@
 #define DEBUG(x) if(DEBUG_ON){cout << ">> " << #x << " : " << (x) << endl;}
 #define DEBUGV(x) if(DEBUG_ON){cout << ">> " << #x << " : \t";for(typeof((x).begin()) i = (x).begin();i!=(x).end();i++)cout<<(*i)<<"\t";cout<<"\n";}
 
-#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
+#define printa(x,n) cout<<#x<<": ";for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
 using namespace std;
 
 /*
@@ -52,7 +52,8 @@ Adjacent swaps
 
 WA on test8 ==> after each move the number you have cannot contain any leading zeroes
 -> But whats the counter example? : 50112
--> still WA! -> 
+-> still WA8! -> 50267
+-> WA23! -> 500111117
 	
 */
 
@@ -61,16 +62,21 @@ int tryXY(string s, char p1,char p2){
 // disallow first swap if 0 at 2nd place
 // guaranteed that 1st num is not 0
 	int pos1=0,pos2=0,l=s.length();
-	int second0 = l>1 && s[1]=='0';
 	for (int i = 1; i <= l ; ++i){
-		if(!(i==l && second0) && !pos2 && s[l-i]==p2)pos2=i;
+		if( !pos2 && s[l-i]==p2)pos2=i;
 		if( !pos1 && pos2!=i && s[l-i]==p1)pos1=i;
+	}
+	int extracase = 0;
+	if(l>1 && s[1]=='0' && pos2==l && p1!='0'){
+		int e = 1;
+		 //reach next nonzero
+		while(e<l && s[e]=='0') e++;
+		extracase = e-1;
 	}
 	if (!(pos1 && pos2))
 		return -1;
-	else if (pos1==1) return pos2 - 1;//one saved instead of additional
-	else 
-		return (pos1 < pos2) + abs(pos1-2) + (pos2-1);
+	else if (pos1==1) return extracase + pos2 - 1;//one saved instead of additional
+	else return (pos1 < pos2) + (pos1!=l-2 && extracase) + abs(pos1-2) + (pos2-1);
 }
 
 int main(){
@@ -103,7 +109,7 @@ int main(){
 	//Timing debugs
 	#ifdef DEBUG_MODE
 	endTime = getTime();
-	printf("Time Taken: %ld ms\n",(endTime-startTime));
+	printf("Run Time: %ld ms\n",(endTime-startTime));
 	#endif
 
 	return 0;

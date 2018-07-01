@@ -9,11 +9,13 @@ int main(){
 	int d;
 	char c;
 	char s[20];
-	scanf("%s",s);
-	scanf("%s",s);
+	// scanf("%s",s);
+	cin>>s;
+	cout<<s<<endl;
+	sscanf(s,"%d",&d);
 	printf("---");
-	printf("%s",s);
-	printf("---");
+	printf("%d",d);
+	printf("---\n");
 	// i++ = 5;
 	return 0;
 }

@@ -14,7 +14,7 @@
 #endif
 
 
-#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
+#define printa(x,n) cout<<#x<<": ";for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
 #define DEBUGA(x,n) if(DEBUG_ON){cout << ">> " << #x << " : \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";cout<<"\n";}
 #define DEBUG(x) if(DEBUG_ON){cout << ">> " << #x << " : " << (x) << endl;}
 using namespace std;

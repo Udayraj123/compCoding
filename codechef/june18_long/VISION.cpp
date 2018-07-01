@@ -75,7 +75,7 @@ int main()
 	//Timing debugs
 	#ifdef DEBUG_MODE
 	endTime = getTime();
-	printf("Time Taken: %ld ms\n",(endTime-startTime));
+	printf("Run Time: %ld ms\n",(endTime-startTime));
 	#endif
 	
 	return 0;

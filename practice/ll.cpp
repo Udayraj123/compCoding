@@ -35,7 +35,6 @@ int insert(node** head, int data, int index){
 	node* next = temp->next;
 	temp->next = newNode(data);
 	temp->next->next = next;//middle or end same code
-	
 }
 
 

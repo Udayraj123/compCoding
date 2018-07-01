@@ -16,7 +16,7 @@
 #endif
 
 
-#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
+#define printa(x,n) cout<<#x<<": ";for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
 #define DEBUGA(x,n) if(!ONLINE_JUDGE_DEF){cout << ">> " << #x << ": \t";for(int i = 0; i < n; ++i)cout<<x[i]<<"\t";cout<<"\n";}
 #define DEBUG(x) if(!ONLINE_JUDGE_DEF){cout << ">> " << #x << ": " << (x) << endl;}
 using namespace std;

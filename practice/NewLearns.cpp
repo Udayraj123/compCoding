@@ -15,10 +15,14 @@ const long long INF = 1e18 + 42;
 #endif
 
 #define dprintf(...) if(!ONLINE_JUDGE_DEF)printf(__VA_ARGS__);
-#define printa(x,n) for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
+#define printa(x,n) cout<<#x<<": ";for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";
 #define DEBUGA(x,n) if(!ONLINE_JUDGE_DEF){for(int i = 0; i < n; ++i)cout<<x[i]<<" ";cout<<"\n";}
 #define DEBUG(x) if(!ONLINE_JUDGE_DEF){cout << ">> " << #x << " : " << (x) << endl;}
 using namespace std;
+
+Emptying a stack in STL: swap with new one:  stack<int>().swap(mystack);
+
+>> Using globals in codeforces is helpful coz only 1 testcase each time and it will speed up coding time.
 
 > WOAH, double prints scientific notation by default! : 0.0000001 is printed as 1e-007
 // precision: default is 6
@@ -77,6 +81,8 @@ printf("%s%d\n",NULL,5) vs printf("%s\n",NULL);
 // Concating vectors
 vl a,b;
 b.insert(b.end(), a.begin(), a.end());
+//custom sort 
+  sort(data.begin(),data.end(), [](const pair< int, pair <int,int> >  &a, const pair< int, pair <int,int> >  &b) {return a.second.second < b.second.second; });
 
 // Catalan's Number -
 answer to 3 eqv problems :
